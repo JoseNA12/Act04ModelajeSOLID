@@ -16,6 +16,7 @@ import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GUI extends Application {
@@ -87,23 +88,27 @@ public class GUI extends Application {
             {
                 if (!cb_alfabetos.getSelectionModel().isEmpty())
                 {
-
+                    miControlador.ProcesarTexto(
+                            new AlgoritmosDTO(
+                                    ta_textoEntrada.getText(),
+                                    null,
+                                    cb_alfabetos.getSelectionModel().getSelectedItem().getIdentificador(),
+                                    ObtenerAlgorimosMarcados(),
+                                    cb_codificar.isSelected())
+                    );
                 }
                 else
                 {
-                    // debe seleccionar un alfabeto
                     MostrarMensajeAlerta( "Debe seleccionar un alfabeto!");
                 }
             }
             else
             {
-                // se debe insertar una entrada de texto
                 MostrarMensajeAlerta( "Debe insertar una frase para procesar!");
             }
         }
         else
         {
-            // debe seleccionar al menos un metodo de procesamiento
             MostrarMensajeAlerta("Debe seleccionar al menos un metodo de procesamiento!");
         }
     }
@@ -146,9 +151,21 @@ public class GUI extends Application {
         }
     }
 
-    private List<String> ObtenerAlgorimosMarcados()
+    private List<TipoAlgoritmo> ObtenerAlgorimosMarcados()
     {
-        return null;
+        List<TipoAlgoritmo> miLista = new ArrayList<TipoAlgoritmo>();
+
+        for (int i = 0; i < lv_algoritmos_deseados.getItems().size(); i++)
+        {
+            for(TipoAlgoritmo m : TipoAlgoritmo.values())
+            {
+                if (m.getNombre().equals(lv_algoritmos_deseados.getItems().get(i)))
+                {
+                    miLista.add(m);
+                }
+            }
+        }
+        return miLista;
     }
 
     private void MostrarMensajeAlerta(String pContenido)

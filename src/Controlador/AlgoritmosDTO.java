@@ -13,4 +13,12 @@ public class AlgoritmosDTO {
     private int idAlfabeto;
     private List<TipoAlgoritmo> algoritmos;
     private Boolean modoCodificacion;
+
+    public AlgoritmosDTO(String textoOriginal, Resultado miResultado, int idAlfabeto, List<TipoAlgoritmo> algoritmos, Boolean modoCodificacion) {
+        this.textoOriginal = textoOriginal;
+        this.miResultado = miResultado;
+        this.idAlfabeto = idAlfabeto;
+        this.algoritmos = algoritmos;
+        this.modoCodificacion = modoCodificacion;
+    }
 }

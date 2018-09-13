@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Controlador implements IValidable {
 
     public Alfabeto alfabetoActual;
+    private AlfabetosDAO misAlfabetos;
 
     @Override
     public Boolean Validar(String pEntrada) {
@@ -25,23 +26,9 @@ public class Controlador implements IValidable {
 
     public void EscribirArch(AlgoritmosDTO miDTO) {}
 
-    public ArrayList<Alfabeto> CargarAlfabetos() {
-        File directory = new File("/path");
-        File[] listOfFiles = directory.listFiles();
-
-        if (listOfFiles != null)
-        {
-            for (File file : listOfFiles)
-            {
-                // Aqui se obtienen los alfabetos, almacenandolos en una lista para ser retornada
-            }
-        }
-
-        // Alfabeto de prueba
-        ArrayList<Alfabeto> miLista = new ArrayList<Alfabeto>();
-        miLista.add(new Alfabeto(1, "abcdefghijklmnñopqrstuvwxyz"));
-
-        return miLista;
+    public ArrayList<Alfabeto> CargarAlfabetos()
+    {
+        return misAlfabetos.getAlfabetos();
     }
 
 
