@@ -2,6 +2,7 @@ package Controlador;
 
 import Modelo.Alfabeto;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Controlador implements IValidable {
@@ -24,7 +25,24 @@ public class Controlador implements IValidable {
 
     public void EscribirArch(AlgoritmosDTO miDTO) {}
 
-    public ArrayList CargarAlfabetos() {return null;}
+    public ArrayList<Alfabeto> CargarAlfabetos() {
+        File directory = new File("/path");
+        File[] listOfFiles = directory.listFiles();
+
+        if (listOfFiles != null)
+        {
+            for (File file : listOfFiles)
+            {
+                // Aqui se obtienen los alfabetos, almacenandolos en una lista para ser retornada
+            }
+        }
+
+        // Alfabeto de prueba
+        ArrayList<Alfabeto> miLista = new ArrayList<Alfabeto>();
+        miLista.add(new Alfabeto(1, "abcdefghijklmnñopqrstuvwxyz"));
+
+        return miLista;
+    }
 
 
 
