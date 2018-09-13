@@ -12,5 +12,4 @@ public class AlgoritmosDTO {
     private Resultado miResultado;
     private int idAlfabeto;
     private List<TipoAlgoritmo> algoritmos;
-    private Boolean modoCodificacion;
 }
