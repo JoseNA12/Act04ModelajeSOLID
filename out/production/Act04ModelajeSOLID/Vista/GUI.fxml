@@ -25,13 +25,9 @@
                <HBox.margin>
                   <Insets left="30.0" />
                </HBox.margin></CheckBox>
-            <CheckBox fx:id="cb_decodificar" mnemonicParsing="false" text="Decodificar">
-               <HBox.margin>
-                  <Insets left="25.0" />
-               </HBox.margin></CheckBox>
             <Button fx:id="bt_procesar" mnemonicParsing="false" onAction="#bt_action_procesar" text="Procesar">
                <HBox.margin>
-                  <Insets left="75.0" />
+                  <Insets left="180.0" />
                </HBox.margin>
             </Button>
          </children>
