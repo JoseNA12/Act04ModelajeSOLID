@@ -1,6 +1,7 @@
 package Vista;
 
 import Controlador.Controlador;
+import Controlador.AlgoritmosDTO;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,6 +11,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.util.List;
 
 public class GUI extends Application {
 
@@ -28,6 +31,7 @@ public class GUI extends Application {
         primaryStage.setTitle("Procesamiento textual");
 
         // cb_alfabetos.getItems().addAll("Alfabeto 1");
+        miControlador = new Controlador();
 
         primaryStage.setScene(new Scene(root, 600, 340));
         primaryStage.show();
@@ -41,13 +45,24 @@ public class GUI extends Application {
     {
         if (!ta_textoEntrada.getText().equals(""))
         {
-
+            miControlador.ProcesarTexto(Controlador.AlgoritmosDTO(
+                    ta_textoEntrada.getText(),
+                    "",
+                    null,
+                    1,
+                    null,
+                    cb_codificar.isSelected()
+                            ));
         }
         else
         {
-            // se bede insertar una entrada de texto
+            // se debe insertar una entrada de texto
         }
+    }
 
+    private List<String> ObtenerAlgorimosMarcados()
+    {
+        return null;
     }
 
 }
