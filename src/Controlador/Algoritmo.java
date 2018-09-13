@@ -4,8 +4,21 @@ import Modelo.Resultado;
 
 public class Algoritmo {
 
-    public Boolean Validar(String pEntrada) {return false;}
+    private Resultado miResultado = new Resultado();
 
-    public Resultado Codificar(String pEntrada) {return null;} // estos dos métodos deben ser estaticos
-    public Resultado Decodificar(String pEntrada) {return null;}
+
+    static Boolean Validar(String pEntrada) {return false;}
+
+    static Resultado Codificar(String pEntrada) {return null;}
+    static Resultado Decodificar(String pEntrada) {return null;}
+
+    public Resultado getMiResultado()
+    {
+        return miResultado;
+    }
+
+    public void setMiResultado(Resultado miResultado)
+    {
+        this.miResultado = miResultado;
+    }
 }

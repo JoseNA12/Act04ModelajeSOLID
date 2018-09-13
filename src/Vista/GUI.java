@@ -92,7 +92,7 @@ public class GUI extends Application {
                             new AlgoritmosDTO(
                                     ta_textoEntrada.getText(),
                                     null,
-                                    cb_alfabetos.getSelectionModel().getSelectedItem().getIdentificador(),
+                                    cb_alfabetos.getSelectionModel().getSelectedItem(),
                                     ObtenerAlgorimosMarcados(),
                                     cb_codificar.isSelected())
                     );

@@ -5,15 +5,17 @@ import Modelo.Resultado;
 
 public class CodTelefonico extends Algoritmo {
 
+
+    public static Resultado Codificar(String pEntrada)
+    {
+        return null;
+    }
+
+    public static Resultado Decodificar(String pEntrada)
+    {
+        return null;
+    }
+
     public Boolean MapearAlfabeto(Alfabeto miAlfabeto) {return null;}
 
-    @Override
-    public Resultado Codificar(String pEntrada) {
-        return super.Codificar(pEntrada);
-    }
-
-    @Override
-    public Resultado Decodificar(String pEntrada) {
-        return super.Decodificar(pEntrada);
-    }
 }

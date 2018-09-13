@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.Alfabeto;
 import Modelo.Resultado;
 import Modelo.TipoAlgoritmo;
 
@@ -10,15 +11,63 @@ public class AlgoritmosDTO {
     private String textoOriginal;
     private String parametroArg;
     private Resultado miResultado;
-    private int idAlfabeto;
+    private Alfabeto miAlfabeto;
     private List<TipoAlgoritmo> algoritmos;
     private Boolean modoCodificacion;
 
-    public AlgoritmosDTO(String textoOriginal, Resultado miResultado, int idAlfabeto, List<TipoAlgoritmo> algoritmos, Boolean modoCodificacion) {
+    public AlgoritmosDTO(String textoOriginal, Resultado miResultado, Alfabeto miAlfabeto, List<TipoAlgoritmo> algoritmos, Boolean modoCodificacion) {
         this.textoOriginal = textoOriginal;
         this.miResultado = miResultado;
-        this.idAlfabeto = idAlfabeto;
+        this.miAlfabeto = miAlfabeto;
         this.algoritmos = algoritmos;
+        this.modoCodificacion = modoCodificacion;
+    }
+
+    public String getTextoOriginal() {
+        return textoOriginal;
+    }
+
+    public void setTextoOriginal(String textoOriginal) {
+        this.textoOriginal = textoOriginal;
+    }
+
+    public String getParametroArg() {
+        return parametroArg;
+    }
+
+    public void setParametroArg(String parametroArg) {
+        this.parametroArg = parametroArg;
+    }
+
+    public Resultado getMiResultado() {
+        return miResultado;
+    }
+
+    public void setMiResultado(Resultado miResultado) {
+        this.miResultado = miResultado;
+    }
+
+    public Alfabeto getAlfabeto() {
+        return miAlfabeto;
+    }
+
+    public void setIdAlfabeto(Alfabeto miAlfabeto) {
+        this.miAlfabeto = miAlfabeto;
+    }
+
+    public List<TipoAlgoritmo> getAlgoritmos() {
+        return algoritmos;
+    }
+
+    public void setAlgoritmos(List<TipoAlgoritmo> algoritmos) {
+        this.algoritmos = algoritmos;
+    }
+
+    public Boolean getModoCodificacion() {
+        return modoCodificacion;
+    }
+
+    public void setModoCodificacion(Boolean modoCodificacion) {
         this.modoCodificacion = modoCodificacion;
     }
 }

@@ -4,13 +4,14 @@ import Modelo.Resultado;
 
 public class TrasLetraLetra extends Algoritmo {
 
-    @Override
-    public Resultado Codificar(String pEntrada) {
-        return super.Codificar(pEntrada);
+
+    public static Resultado Codificar(String pEntrada)
+    {
+        return null;
     }
 
-    @Override
-    public Resultado Decodificar(String pEntrada) {
-        return super.Decodificar(pEntrada);
+    public static Resultado Decodificar(String pEntrada)
+    {
+        return null;
     }
 }
