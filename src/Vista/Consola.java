@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.Algoritmo;
 import Controlador.Controlador;
+import Controlador.AlgoritmosDTO;
 import Modelo.Alfabeto;
 import Modelo.ModoCodificacion;
 import Modelo.TipoAlgoritmo;
@@ -11,7 +12,7 @@ import java.util.*;
 public class Consola {
 
     private static Scanner in;
-    private static final int OPCIONES_ALGORITMOS_INICIALES = 2; // 0 - Confirmar, 1 - Volver
+    private static final int OPCIONES_ALGORITMOS_INICIALES = 1; // 0 - Confirmar
     private static Controlador miControlador;
 
     private static List<TipoAlgoritmo> algoritmos;
@@ -56,10 +57,17 @@ public class Consola {
                 desplegarPantallaAlfabetos();
                 desplegarPantallaEntrada();
                 //Llamar a crear DTO
+                AlgoritmosDTO dto = new AlgoritmosDTO(
+                        entradaActual,
+                        null,
+                        alfabetoActual,
+                        algoritmos_seleccionados,
+                        modoCodificacion);
+                miControlador.ProcesarTexto(dto); //Sets resultado
+                miControlador.EscribirArch(dto);
+                //Algun metodo para desplegarlo en pantalla
                 break;
-            case 2: //Configuracion
-                break;
-            case 3: //Salir
+            case 2: //Salir
                 break;
             default:
                 break;
@@ -93,9 +101,6 @@ public class Consola {
         int seleccion = obtener_Seleccion();
 
         switch (seleccion){
-            case 0:
-                //Codigo para volver
-                break;
             case 1:
                 //Codificar
                 modoCodificacion = true;
@@ -118,13 +123,10 @@ public class Consola {
 
     private static void desplegarPantallaEntrada(){
         println(Consola_Display.ENTRADA_TEXTO.getValor());
-        String entrada = in.next();
+        in.nextLine(); //Necesario debido a una pulga con nextLine()
+        String entrada = in.nextLine();
         //Validar entrada
         entradaActual = entrada;
-    }
-
-    private static void desplegarPantallaAgregarAlfabeto(){
-        println(Consola_Display.ENTRADA_PATH_ALFABETO.getValor());
     }
 
     private static void imprimirListaAlgoritmos(){

@@ -4,19 +4,16 @@ public enum Consola_Display {
     MENU_PRINCIPAL(
             "Menú principal:\n" +
             "1 - Herramienta de cifrado\n" +
-            "2 - Agregar un alfabeto\n" +
-            "4 - Salir"
+            "2 - Salir"
     ),
     SELECCION_ALGORITMO_HEADER(
             "Seleccione los algoritmos de cifrado deseados:"
     ),
     SELECCION_ALGORITMO_OPCIONES(
-            "0 - Confirmar\n" +
-            "1 - Volver"
+            "0 - Confirmar"
     ),
     SELECCION_MODO(
             "Seleccione el modo:\n" +
-            "0 - Volver\n" +
             "1 - Codificar\n" +
             "2 - Descodificar:"
     ),
