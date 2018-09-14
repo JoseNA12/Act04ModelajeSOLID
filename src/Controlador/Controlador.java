@@ -4,7 +4,7 @@ import Modelo.Alfabeto;
 import Modelo.Resultado;
 import Modelo.TipoAlgoritmo;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +74,23 @@ public class Controlador implements IValidable {
 
     // public void EstablecerAlfabeto(String pSimbolos) {} Eliminado del diagrama
 
-    public void EscribirArch(AlgoritmosDTO miDTO) {}
+    public void EscribirArch(AlgoritmosDTO miDTO) {
+
+        Resultado result = miDTO.getMiResultado();
+
+        File f = new File("Resultados/");
+
+        try {
+            FileWriter w = new FileWriter(f);
+            BufferedWriter bw = new BufferedWriter(w);
+            PrintWriter wr = new PrintWriter(bw);
+
+            wr.write(result.toString());
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
     public ArrayList<Alfabeto> CargarAlfabetos()
     {
