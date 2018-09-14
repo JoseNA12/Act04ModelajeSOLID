@@ -1,6 +1,8 @@
 package Vista;
 
 import Controlador.Algoritmo;
+import Controlador.Controlador;
+import Modelo.Alfabeto;
 import Modelo.ModoCodificacion;
 import Modelo.TipoAlgoritmo;
 
@@ -10,11 +12,15 @@ public class Consola {
 
     private static Scanner in;
     private static final int OPCIONES_ALGORITMOS_INICIALES = 2; // 0 - Confirmar, 1 - Volver
+    private static Controlador miControlador;
 
     private static List<TipoAlgoritmo> algoritmos;
+    private static ArrayList<Alfabeto> alfabetos;
 
     private static List<TipoAlgoritmo> algoritmos_seleccionados;
     private static boolean modoCodificacion;
+    private static Alfabeto alfabetoActual;
+    private static String entradaActual;
 
     //private static List
 
@@ -24,8 +30,10 @@ public class Consola {
     }
 
     private static void inicializar(){
+        miControlador = new Controlador();
         algoritmos = Arrays.asList(TipoAlgoritmo.values());
         algoritmos_seleccionados = new ArrayList<>();
+        alfabetos = miControlador.CargarAlfabetos();
         modoCodificacion = false;
         //algoritmos_seleccionados.add(TipoAlgoritmo.SUSTVIGENERE);
         //algoritmos_seleccionados.add(TipoAlgoritmo.TRASLETRALETRA);
@@ -45,6 +53,9 @@ public class Consola {
             case 1: //Herramienta de cifrado
                 desplegarPantallaAlgoritmos();
                 desplegarPantallaModo();
+                desplegarPantallaAlfabetos();
+                desplegarPantallaEntrada();
+                //Llamar a crear DTO
                 break;
             case 2: //Configuracion
                 break;
@@ -98,6 +109,24 @@ public class Consola {
         }
     }
 
+    private static void desplegarPantallaAlfabetos(){
+        println(Consola_Display.SELECCION_ALFABETO.getValor());
+        imprimirListaAlfabetos();
+        int seleccion = obtener_Seleccion();
+        alfabetoActual = obtenerAlfabetoSeleccionado(seleccion);
+    }
+
+    private static void desplegarPantallaEntrada(){
+        println(Consola_Display.ENTRADA_TEXTO.getValor());
+        String entrada = in.next();
+        //Validar entrada
+        entradaActual = entrada;
+    }
+
+    private static void desplegarPantallaAgregarAlfabeto(){
+        println(Consola_Display.ENTRADA_PATH_ALFABETO.getValor());
+    }
+
     private static void imprimirListaAlgoritmos(){
         int numOpcion = OPCIONES_ALGORITMOS_INICIALES;
         for (TipoAlgoritmo algoritmo : algoritmos) {
@@ -112,8 +141,23 @@ public class Consola {
         }
     }
 
+    private static void imprimirListaAlfabetos(){
+        for (Alfabeto alfabeto : alfabetos){
+            println(alfabeto.getIdentificador() + " - " + alfabeto.getSimbolos());
+        }
+    }
+
     private static int obtener_Seleccion(){
         return in.nextInt();
+    }
+
+    private static Alfabeto obtenerAlfabetoSeleccionado(int identificador){
+        for(Alfabeto alfabeto : alfabetos){
+            if(alfabeto.getIdentificador() == identificador)
+                return alfabeto;
+        }
+
+        return null;
     }
 
     private static void toggle_Seleccion_Algoritmo(TipoAlgoritmo algoritmo){
