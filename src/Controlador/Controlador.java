@@ -72,6 +72,9 @@ public class Controlador implements IValidable {
 
     public void ProcesarTexto(AlgoritmosDTO miDTO, String pParametroArg) {}
 
+    public Boolean AgregarAlfabeto(AlgoritmosDTO miDTO){
+        return misAlfabetos.CrearAlfabeto(miDTO);
+    }
     // public void EstablecerAlfabeto(String pSimbolos) {} Eliminado del diagrama
 
     public void EscribirArch(AlgoritmosDTO miDTO) {
@@ -85,7 +88,7 @@ public class Controlador implements IValidable {
             BufferedWriter bw = new BufferedWriter(w);
             PrintWriter wr = new PrintWriter(bw);
 
-            wr.write(result.toString());
+            //wr.write(result.toString()); Escribir a un archivo,
         }
         catch(IOException e){
             e.printStackTrace();

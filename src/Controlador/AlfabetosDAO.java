@@ -33,23 +33,8 @@ public class AlfabetosDAO implements IValidable {
         return miLista;
     }
 
-    public Boolean CrearAlfabeto(int pIdentificardor, String pSimbolos)
+    public Boolean CrearAlfabeto(AlgoritmosDTO miDTO)
     {
         return true;
-    }
-
-    public Alfabeto LeerAlfabeto()
-    {
-        return null;
-    }
-
-    public Boolean ActualizarAlfabeto()
-    {
-        return true;
-    }
-
-    public Boolean EliminarAlfabeto()
-    {
-        return false;
     }
 }

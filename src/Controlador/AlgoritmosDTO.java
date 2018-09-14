@@ -23,6 +23,10 @@ public class AlgoritmosDTO {
         this.modoCodificacion = modoCodificacion;
     }
 
+    public AlgoritmosDTO(Alfabeto miAlfabeto) {
+        this.miAlfabeto = miAlfabeto;
+    }
+
     public String getTextoOriginal() {
         return textoOriginal;
     }

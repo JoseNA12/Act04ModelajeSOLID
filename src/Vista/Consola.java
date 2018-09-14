@@ -1,10 +1,8 @@
 package Vista;
 
-import Controlador.Algoritmo;
 import Controlador.Controlador;
 import Controlador.AlgoritmosDTO;
 import Modelo.Alfabeto;
-import Modelo.ModoCodificacion;
 import Modelo.TipoAlgoritmo;
 
 import java.util.*;
@@ -22,6 +20,7 @@ public class Consola {
     private static boolean modoCodificacion;
     private static Alfabeto alfabetoActual;
     private static String entradaActual;
+    private static Alfabeto nuevoAlfabeto;
 
     //private static List
 
@@ -36,8 +35,6 @@ public class Consola {
         algoritmos_seleccionados = new ArrayList<>();
         alfabetos = miControlador.CargarAlfabetos();
         modoCodificacion = false;
-        //algoritmos_seleccionados.add(TipoAlgoritmo.SUSTVIGENERE);
-        //algoritmos_seleccionados.add(TipoAlgoritmo.TRASLETRALETRA);
         in = new Scanner(System.in);
     }
 
@@ -67,7 +64,10 @@ public class Consola {
                 miControlador.EscribirArch(dto);
                 //Algun metodo para desplegarlo en pantalla
                 break;
-            case 2: //Salir
+            case 2:
+                desplegarPantallaAgregarAlfabeto();
+                miControlador.AgregarAlfabeto(new AlgoritmosDTO(nuevoAlfabeto));
+            case 3: //Salir
                 break;
             default:
                 break;
@@ -85,8 +85,6 @@ public class Consola {
 
             if(seleccion == 0){ //Confirmar
                 confirmado = true;
-            } else if(seleccion == 1){ //Volver
-                //Codigo para volver
             } else if(
                     seleccion >= OPCIONES_ALGORITMOS_INICIALES &&
                     seleccion <= algoritmos.size() + OPCIONES_ALGORITMOS_INICIALES
@@ -127,6 +125,15 @@ public class Consola {
         String entrada = in.nextLine();
         //Validar entrada
         entradaActual = entrada;
+    }
+
+    private static void desplegarPantallaAgregarAlfabeto(){
+        println(Consola_Display.ENTRADA_PATH_ALFABETO.getValor());
+        in.nextLine(); //Necesario debido a una pulga con nextLine()
+        String simbolos = in.nextLine();
+        println(Consola_Display.ENTRADA_NOMBRE_ALFABETO.getValor());
+        int idAlfabeto = in.nextInt();
+        nuevoAlfabeto = new Alfabeto(idAlfabeto, simbolos);
     }
 
     private static void imprimirListaAlgoritmos(){
