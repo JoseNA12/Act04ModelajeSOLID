@@ -28,13 +28,19 @@ public class AlfabetosDAO implements IValidable {
 
         // Alfabeto de prueba
         ArrayList<Alfabeto> miLista = new ArrayList<Alfabeto>();
-        miLista.add(new Alfabeto(1, "abcdefghijklmnñopqrstuvwxyz"));
+        miLista.add(new Alfabeto(0, ".ñ{}vfsbhjSDVhjab"));
 
         return miLista;
     }
 
-    public Boolean CrearAlfabeto(int pIdentificardor, String pSimbolos)
+    public Boolean CrearAlfabeto(AlgoritmosDTO miDTO)
     {
+
+        int identificador = miDTO.getAlfabeto().getIdentificador();
+        String simbolos = miDTO.getAlfabeto().getSimbolos();
+
+        // Aqui se mandará a crear el txt con el alfabeto
+
         return true;
     }
 

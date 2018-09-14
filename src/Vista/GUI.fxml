@@ -10,6 +10,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="608.0" maxWidth="840.0" minHeight="340" minWidth="600" prefHeight="427.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Vista.GUI">
    <children>
@@ -40,5 +41,10 @@
       <Button fx:id="bt_quitar" layoutX="211.0" layoutY="167.0" mnemonicParsing="false" onAction="#bt_action_quitar" prefHeight="25.0" prefWidth="36.0" text="&lt;-" />
       <Separator layoutX="432.0" layoutY="57.0" orientation="VERTICAL" prefHeight="270.0" prefWidth="9.0" />
       <Label layoutX="269.0" layoutY="40.0" text="Por aplicar:" />
+      <Button fx:id="btn_agregar_alfabeto" layoutX="186.0" layoutY="330.0" mnemonicParsing="false" onAction="#bt_action_agregarNuevoAlfabeto" text="+">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

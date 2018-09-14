@@ -23,6 +23,11 @@ public class AlgoritmosDTO {
         this.modoCodificacion = modoCodificacion;
     }
 
+    public AlgoritmosDTO(Alfabeto miAlfabeto)
+    {
+        this.miAlfabeto = miAlfabeto;
+    }
+
     public String getTextoOriginal() {
         return textoOriginal;
     }
@@ -48,7 +53,7 @@ public class AlgoritmosDTO {
     }
 
     public Alfabeto getAlfabeto() {
-        return miAlfabeto;
+        return this.miAlfabeto;
     }
 
     public void setIdAlfabeto(Alfabeto miAlfabeto) {
