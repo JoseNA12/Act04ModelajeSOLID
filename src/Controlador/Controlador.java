@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Alfabeto;
+import Modelo.Resultado;
 import Modelo.TipoAlgoritmo;
 
 import java.io.File;
@@ -25,7 +26,8 @@ public class Controlador implements IValidable {
         List<TipoAlgoritmo> algoritmos = miDTO.getAlgoritmos();
         Boolean modoCodificacion = miDTO.getModoCodificacion();
 
-        Algoritmo misAlgoritmos = new Algoritmo();
+
+        Resultado resultado = new Resultado(textoOriginal);
 
         for (int i = 0; i < algoritmos.size(); i++)
         {
@@ -34,16 +36,15 @@ public class Controlador implements IValidable {
                 switch (algoritmos.get(i))
                 {
                     case TRASLETRALETRA:
-                        TrasLetraLetra.Codificar(textoOriginal);
-
+                        resultado.agregarLineaResultado(TrasLetraLetra.Codificar(textoOriginal));
                         break;
 
                     case CODTELEFONICO:
-                        CodTelefonico.Codificar(textoOriginal);
+                        resultado.agregarLineaResultado(CodTelefonico.Codificar(textoOriginal));
                         break;
 
                     case SUSTVIGENERE:
-                        SustVigenere.Codificar(textoOriginal);
+                        resultado.agregarLineaResultado(SustVigenere.Codificar(textoOriginal));
                         break;
                 }
             }
@@ -52,22 +53,21 @@ public class Controlador implements IValidable {
                 switch (algoritmos.get(i))
                 {
                     case TRASLETRALETRA:
-                        TrasLetraLetra.Decodificar(textoOriginal);
+                        resultado.agregarLineaResultado(TrasLetraLetra.Decodificar(textoOriginal));
                         break;
 
                     case CODTELEFONICO:
-                        CodTelefonico.Decodificar(textoOriginal);
+                        resultado.agregarLineaResultado(CodTelefonico.Decodificar(textoOriginal));
                         break;
 
                     case SUSTVIGENERE:
-                        SustVigenere.Decodificar(textoOriginal);
+                        resultado.agregarLineaResultado(SustVigenere.Decodificar(textoOriginal));
                         break;
 
                 }
             }
         }
-
-        TrasLetraLetra.Codificar(textoOriginal);
+        miDTO.setMiResultado(resultado);
     }
 
     public void ProcesarTexto(AlgoritmosDTO miDTO, String pParametroArg) {}
