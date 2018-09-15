@@ -128,10 +128,10 @@ public class Consola {
     }
 
     private static void desplegarPantallaAgregarAlfabeto(){
-        println(Consola_Display.ENTRADA_PATH_ALFABETO.getValor());
+        println(Consola_Display.ENTRADA_SIMBOLOS_ALFABETO.getValor());
         in.nextLine(); //Necesario debido a una pulga con nextLine()
         String simbolos = in.nextLine();
-        println(Consola_Display.ENTRADA_NOMBRE_ALFABETO.getValor());
+        println(Consola_Display.ENTRADA_ID_ALFABETO.getValor());
         int idAlfabeto = in.nextInt();
         nuevoAlfabeto = new Alfabeto(idAlfabeto, simbolos);
     }
