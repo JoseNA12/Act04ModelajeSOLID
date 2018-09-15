@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Controlador implements IValidable {
 
-    // public Alfabeto alfabetoActual; Eliminado del diagrama
+    public Alfabeto alfabetoDefault = new Alfabeto(0, "abcdefghijklmnñopqrstuvwxyz"); // default
     private AlfabetosDAO misAlfabetos = new AlfabetosDAO();
     private IEscritura miEscritura;
 
@@ -72,10 +72,12 @@ public class Controlador implements IValidable {
 
     public void ProcesarTexto(AlgoritmosDTO miDTO, String pParametroArg) {}
 
-    public Boolean AgregarAlfabeto(AlgoritmosDTO miDTO){
+    // public void EstablecerAlfabeto(String pSimbolos) {} Eliminado del diagrama
+
+    public Boolean AgregarAlfabeto(AlgoritmosDTO miDTO)
+    {
         return misAlfabetos.CrearAlfabeto(miDTO);
     }
-    // public void EstablecerAlfabeto(String pSimbolos) {} Eliminado del diagrama
 
     public void EscribirArch(AlgoritmosDTO miDTO) {
 
@@ -97,6 +99,9 @@ public class Controlador implements IValidable {
 
     public ArrayList<Alfabeto> CargarAlfabetos()
     {
-        return misAlfabetos.getAlfabetos();
+        ArrayList<Alfabeto> lista = new ArrayList<Alfabeto>();
+        lista = misAlfabetos.getAlfabetos();
+        lista.add(lista.size(), alfabetoDefault);
+        return lista;
     }
 }

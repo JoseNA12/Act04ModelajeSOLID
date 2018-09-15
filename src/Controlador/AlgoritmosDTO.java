@@ -52,7 +52,7 @@ public class AlgoritmosDTO {
     }
 
     public Alfabeto getAlfabeto() {
-        return miAlfabeto;
+        return this.miAlfabeto;
     }
 
     public void setIdAlfabeto(Alfabeto miAlfabeto) {

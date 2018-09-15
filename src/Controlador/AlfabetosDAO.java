@@ -28,7 +28,7 @@ public class AlfabetosDAO implements IValidable {
 
         // Alfabeto de prueba
         ArrayList<Alfabeto> miLista = new ArrayList<Alfabeto>();
-        miLista.add(new Alfabeto(1, "abcdefghijklmnñopqrstuvwxyz"));
+        miLista.add(new Alfabeto(1, ".ñ{}vfsbhjSDVhjab"));
 
         return miLista;
     }

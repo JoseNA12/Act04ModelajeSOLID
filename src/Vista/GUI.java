@@ -18,6 +18,7 @@ import javafx.util.Callback;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class GUI extends Application {
 
@@ -25,7 +26,7 @@ public class GUI extends Application {
     @FXML private ComboBox <Alfabeto> cb_alfabetos;
     @FXML private TextArea ta_textoEntrada, ta_textoProcesado;
     @FXML private CheckBox cb_codificar;
-    @FXML private Button bt_procesar;
+    @FXML private Button bt_procesar, btn_agregar_alfabeto;
 
     private Controlador miControlador = new Controlador();
 
@@ -150,6 +151,26 @@ public class GUI extends Application {
 
             // elimino el elemento de la lista de los algoritmos (original digamos)
             lv_algoritmos_deseados.getItems().remove(selectedIdx);
+        }
+    }
+
+    public void bt_action_agregarNuevoAlfabeto()
+    {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Agregar nuevo alfabeto");
+        dialog.setHeaderText("Ingrese los simbolos del alfabeto deseado");
+        dialog.setContentText("Símbolos:");
+
+        Optional<String> result = dialog.showAndWait();
+
+        if (result.isPresent())
+        {
+            if (miControlador.AgregarAlfabeto(new AlgoritmosDTO(new Alfabeto(0, result.get()))))
+            {
+                // cargar los alfabetos con el nuevo registrado
+
+                MostrarMensajeAlerta("Se ha registrado el alfabeto");
+            }
         }
     }
 
