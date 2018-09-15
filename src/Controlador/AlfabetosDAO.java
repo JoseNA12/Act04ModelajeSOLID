@@ -15,6 +15,7 @@ public class AlfabetosDAO implements IValidable {
 
     public ArrayList<Alfabeto> getAlfabetos()
     {
+        System.out.println("AlfabetosDAO.getAlfabetos()");
         File directory = new File("/path");
         File[] listOfFiles = directory.listFiles();
 
@@ -35,6 +36,7 @@ public class AlfabetosDAO implements IValidable {
 
     public Boolean CrearAlfabeto(AlgoritmosDTO miDTO)
     {
+        System.out.println("AlfabetosDAO.crearAlfabeto(dto)");
         return true;
     }
 }

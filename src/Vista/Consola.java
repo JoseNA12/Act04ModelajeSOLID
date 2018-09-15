@@ -43,6 +43,7 @@ public class Consola {
     }
 
     private static void desplegarMenuInicio(){
+        System.out.println("Consola.desplegarMenuInicio()");
         println(Consola_Display.MENU_PRINCIPAL.getValor());
         println(Consola_Display.SELECCION_OPCION.getValor());
         int seleccion = obtener_Seleccion();
@@ -75,6 +76,7 @@ public class Consola {
     }
 
     private static void desplegarPantallaAlgoritmos(){
+        System.out.println("Consola.desplegarPantallaAlgoritmos()");
         println(Consola_Display.SELECCION_ALGORITMO_HEADER.getValor());
         boolean confirmado = false;
 
@@ -95,6 +97,7 @@ public class Consola {
     }
 
     private static void desplegarPantallaModo(){
+        System.out.println("Consola.desplegarPantallaModo()");
         println(Consola_Display.SELECCION_MODO.getValor());
         int seleccion = obtener_Seleccion();
 
@@ -113,6 +116,7 @@ public class Consola {
     }
 
     private static void desplegarPantallaAlfabetos(){
+        System.out.println("Consola.desplegarPantallaAlfabetos()");
         println(Consola_Display.SELECCION_ALFABETO.getValor());
         imprimirListaAlfabetos();
         int seleccion = obtener_Seleccion();
@@ -120,6 +124,7 @@ public class Consola {
     }
 
     private static void desplegarPantallaEntrada(){
+        System.out.println("Consola.desplegarPantallaEntrada()");
         println(Consola_Display.ENTRADA_TEXTO.getValor());
         in.nextLine(); //Necesario debido a una pulga con nextLine()
         String entrada = in.nextLine();
@@ -128,6 +133,7 @@ public class Consola {
     }
 
     private static void desplegarPantallaAgregarAlfabeto(){
+        System.out.println("Consola.desplegarPantallaAgregarAlfabeto()");
         println(Consola_Display.ENTRADA_SIMBOLOS_ALFABETO.getValor());
         in.nextLine(); //Necesario debido a una pulga con nextLine()
         String simbolos = in.nextLine();
