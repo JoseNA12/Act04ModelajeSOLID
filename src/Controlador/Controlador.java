@@ -1,15 +1,16 @@
 package Controlador;
 
 import Modelo.Alfabeto;
+import Modelo.Resultado;
 import Modelo.TipoAlgoritmo;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Controlador implements IValidable {
 
-    public Alfabeto alfabetoDefault = new Alfabeto(1, "abcdefghijklmnñopqrstuvwxyz"); // default
+    public Alfabeto alfabetoDefault = new Alfabeto(0, "abcdefghijklmnñopqrstuvwxyz"); // default
     private AlfabetosDAO misAlfabetos = new AlfabetosDAO();
     private IEscritura miEscritura;
 
@@ -25,7 +26,8 @@ public class Controlador implements IValidable {
         List<TipoAlgoritmo> algoritmos = miDTO.getAlgoritmos();
         Boolean modoCodificacion = miDTO.getModoCodificacion();
 
-        Algoritmo misAlgoritmos = new Algoritmo();
+
+        Resultado resultado = new Resultado(textoOriginal);
 
         for (int i = 0; i < algoritmos.size(); i++)
         {
@@ -34,15 +36,15 @@ public class Controlador implements IValidable {
                 switch (algoritmos.get(i))
                 {
                     case TRASLETRALETRA:
-                        TrasLetraLetra.Codificar(textoOriginal);
+                        resultado.agregarLineaResultado(TrasLetraLetra.Codificar(textoOriginal));
                         break;
 
                     case CODTELEFONICO:
-                        CodTelefonico.Codificar(textoOriginal);
+                        resultado.agregarLineaResultado(CodTelefonico.Codificar(textoOriginal));
                         break;
 
                     case SUSTVIGENERE:
-                        SustVigenere.Codificar(textoOriginal);
+                        resultado.agregarLineaResultado(SustVigenere.Codificar(textoOriginal));
                         break;
                 }
             }
@@ -51,20 +53,21 @@ public class Controlador implements IValidable {
                 switch (algoritmos.get(i))
                 {
                     case TRASLETRALETRA:
-                        TrasLetraLetra.Decodificar(textoOriginal);
+                        resultado.agregarLineaResultado(TrasLetraLetra.Decodificar(textoOriginal));
                         break;
 
                     case CODTELEFONICO:
-                        CodTelefonico.Decodificar(textoOriginal);
+                        resultado.agregarLineaResultado(CodTelefonico.Decodificar(textoOriginal));
                         break;
 
                     case SUSTVIGENERE:
-                        SustVigenere.Decodificar(textoOriginal);
+                        resultado.agregarLineaResultado(SustVigenere.Decodificar(textoOriginal));
                         break;
 
                 }
             }
         }
+        miDTO.setMiResultado(resultado);
     }
 
     public void ProcesarTexto(AlgoritmosDTO miDTO, String pParametroArg) {}
@@ -76,7 +79,23 @@ public class Controlador implements IValidable {
         return misAlfabetos.CrearAlfabeto(miDTO);
     }
 
-    public void EscribirArch(AlgoritmosDTO miDTO) {}
+    public void EscribirArch(AlgoritmosDTO miDTO) {
+
+        Resultado result = miDTO.getMiResultado();
+
+        File f = new File("Resultados/");
+
+        try {
+            FileWriter w = new FileWriter(f);
+            BufferedWriter bw = new BufferedWriter(w);
+            PrintWriter wr = new PrintWriter(bw);
+
+            //wr.write(result.toString()); Escribir a un archivo,
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
     public ArrayList<Alfabeto> CargarAlfabetos()
     {

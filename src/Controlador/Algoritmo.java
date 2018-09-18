@@ -1,23 +1,24 @@
 package Controlador;
 
+import Modelo.LineaResultado;
 import Modelo.Resultado;
 
 public class Algoritmo {
 
-    private Resultado miResultado = new Resultado();
+    private LineaResultado miResultado;
 
 
     static Boolean Validar(String pEntrada) {return false;}
 
-    static Resultado Codificar(String pEntrada) {return null;}
-    static Resultado Decodificar(String pEntrada) {return null;}
+    static LineaResultado Codificar(String pEntrada) {return null;}
+    static LineaResultado Decodificar(String pEntrada) {return null;}
 
-    public Resultado getMiResultado()
+    public LineaResultado getMiResultado()
     {
         return miResultado;
     }
 
-    public void setMiResultado(Resultado miResultado)
+    public void setMiResultado(LineaResultado miResultado)
     {
         this.miResultado = miResultado;
     }

@@ -23,8 +23,7 @@ public class AlgoritmosDTO {
         this.modoCodificacion = modoCodificacion;
     }
 
-    public AlgoritmosDTO(Alfabeto miAlfabeto)
-    {
+    public AlgoritmosDTO(Alfabeto miAlfabeto) {
         this.miAlfabeto = miAlfabeto;
     }
 

@@ -89,14 +89,16 @@ public class GUI extends Application {
             {
                 if (!cb_alfabetos.getSelectionModel().isEmpty())
                 {
-                    miControlador.ProcesarTexto(
-                            new AlgoritmosDTO(
-                                    ta_textoEntrada.getText(),
-                                    null,
-                                    cb_alfabetos.getSelectionModel().getSelectedItem(),
-                                    ObtenerAlgorimosMarcados(),
-                                    cb_codificar.isSelected())
-                    );
+                    AlgoritmosDTO dto = new AlgoritmosDTO(
+                            ta_textoEntrada.getText(),
+                            null,
+                            cb_alfabetos.getSelectionModel().getSelectedItem(),
+                            ObtenerAlgorimosMarcados(),
+                            cb_codificar.isSelected());
+                    miControlador.ProcesarTexto(dto);
+                    miControlador.ProcesarTexto(dto); //Sets resultado
+                    miControlador.EscribirArch(dto);
+                    //Algun codigo para desplegarlo en pantalla
                 }
                 else
                 {
