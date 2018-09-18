@@ -21,6 +21,8 @@ public class Controlador implements IValidable {
 
     public void ProcesarTexto(AlgoritmosDTO miDTO)
     {
+        System.out.println("Controlador.ProcesarTexto(dto)");
+
         String textoOriginal = miDTO.getTextoOriginal();
         Alfabeto miAlfabeto = miDTO.getAlfabeto();
         List<TipoAlgoritmo> algoritmos = miDTO.getAlgoritmos();
@@ -68,6 +70,8 @@ public class Controlador implements IValidable {
             }
         }
         miDTO.setMiResultado(resultado);
+
+
     }
 
     public void ProcesarTexto(AlgoritmosDTO miDTO, String pParametroArg) {}
@@ -80,6 +84,7 @@ public class Controlador implements IValidable {
     }
 
     public void EscribirArch(AlgoritmosDTO miDTO) {
+        System.out.println("Controlador.EscribirArch(dto)");
 
         Resultado result = miDTO.getMiResultado();
 
@@ -99,9 +104,11 @@ public class Controlador implements IValidable {
 
     public ArrayList<Alfabeto> CargarAlfabetos()
     {
+        System.out.println("Controlador.CargarAlfabetos()");
         ArrayList<Alfabeto> lista = new ArrayList<Alfabeto>();
         lista = misAlfabetos.getAlfabetos();
         lista.add(lista.size(), alfabetoDefault);
+
         return lista;
     }
 }

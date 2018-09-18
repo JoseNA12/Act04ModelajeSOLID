@@ -16,6 +16,7 @@ public class AlgoritmosDTO {
     private Boolean modoCodificacion;
 
     public AlgoritmosDTO(String textoOriginal, Resultado miResultado, Alfabeto miAlfabeto, List<TipoAlgoritmo> algoritmos, Boolean modoCodificacion) {
+        System.out.println("new DTO(texto, alfabeto, algoritmos, modo)");
         this.textoOriginal = textoOriginal;
         this.miResultado = miResultado;
         this.miAlfabeto = miAlfabeto;
@@ -24,6 +25,7 @@ public class AlgoritmosDTO {
     }
 
     public AlgoritmosDTO(Alfabeto miAlfabeto) {
+        System.out.println("new DTO(nuevoAlfabeto)");
         this.miAlfabeto = miAlfabeto;
     }
 

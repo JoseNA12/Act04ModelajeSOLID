@@ -27,11 +27,11 @@ public enum Consola_Display {
     ENTRADA_TEXTO(
             "Ingrese el texto a ser procesado:"
     ),
-    ENTRADA_PATH_ALFABETO(
+    ENTRADA_SIMBOLOS_ALFABETO(
             "Agregar un alfabeto\n" +
-            "Ingrese el path del  archivo (.txt) que contiene los simbolos del alfabeto:"
+            "Ingrese los simbolos (abcedfg...) que contiene el alfabeto:"
     ),
-    ENTRADA_NOMBRE_ALFABETO(
+    ENTRADA_ID_ALFABETO(
             "Ingrese el nombre (identificador) del alfabeto:"
     );
 
